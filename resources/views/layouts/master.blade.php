@@ -6,8 +6,8 @@
 	<!--header nav-->
 	@include('layouts.header')
 
-	@yield('content')
-    {{-- {{ $slot }} --}}
+	{{-- @yield('content') --}}
+    {{ $slot }}
     {{-- footer  --}}
     @include('layouts.footer')
 	@include('layouts.frontjs')

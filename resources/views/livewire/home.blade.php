@@ -1,5 +1,4 @@
-@extends('layouts.master')
-@section('content')
+<div>
     <main id="main">
         <div class="container">
 
@@ -1039,4 +1038,4 @@
         </div>
 
     </main>
-@endsection
+</div>
