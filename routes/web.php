@@ -14,18 +14,6 @@ Route::get('/shop',Shop::class);
 Route::get('/cart',Cart::class);
 Route::get('/checkout',Checkout::class);
 
-
-
-
-
-
-
-// end of routes
-
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-//     return view('dashboard');
-// })->name('dashboard');
-
 // route for admin
 Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function () {
     Route::get('/admin/dashboard',Dashboard::class)->name('admin.dashboard');
