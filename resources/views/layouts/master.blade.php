@@ -5,7 +5,6 @@
 	@include('layouts.minhead')
 	<!--header nav-->
 	@include('layouts.header')
-
 	{{-- @yield('content') --}}
     {{ $slot }}
     {{-- footer  --}}
