@@ -6,7 +6,7 @@ use App\Http\Livewire;
 //start routes
 Route::get('/',Livewire\Home::class);
 Route::get('/shop',Livewire\Shop::class);
-Route::get('/cart',Livewire\Cart::class);
+Route::get('/cart',Livewire\Cart::class)->name('product.cart');
 Route::get('/checkout',Livewire\Checkout::class);
 Route::get('/product/{slug}',Livewire\ProductDetails::class)->name('product.details');
 
