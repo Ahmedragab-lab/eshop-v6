@@ -8,6 +8,7 @@ Route::get('/',Livewire\Home::class);
 Route::get('/shop',Livewire\Shop::class);
 Route::get('/cart',Livewire\Cart::class);
 Route::get('/checkout',Livewire\Checkout::class);
+Route::get('/product/{slug}',Livewire\ProductDetails::class)->name('product.details');
 
 // route for admin
 Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function () {

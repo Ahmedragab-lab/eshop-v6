@@ -23,10 +23,10 @@ class ProductFactory extends Factory
             'SKU'=>'DIGI'.$this->faker->unique()->numberBetween(10,500),
             'stock'=>'instock',
             'qty'=>$this->faker->numberBetween(100,200),
-            'image'=>'digital_' . $this->faker->numberBetween(1,22).'.jpg',
+            'image'=>'digital_' . $this->faker->numberBetween(10,22).'.jpg',
             'section_id'=>$this->faker->numberBetween(1,5),
 
-            
+
             // 'selling_price'=>$this->faker->numberBetween(10,500),
             // 'featured'=>$this->faker->text(200),
         ];
