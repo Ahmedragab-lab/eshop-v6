@@ -31,7 +31,7 @@
                                     <div class="price-field produtc-price"><p class="price">${{ $item->model->original_price }}</p></div>
                                     <div class="quantity">
                                         <div class="quantity-input">
-                                            <input type="number" name="product-quatity" value="{{ $item->qty }}" data-max="120" pattern="[0-9]*" >
+                                            <input type="text"  onkeydown="return false" min="1" max="{{ $item->model->qty }}" name="product-quatity" value="{{ $item->qty }}" data-max="120" pattern="[0-9]*" >
                                             <a class="btn btn-increase" href="#" wire:click.prevent="increaseQuntity('{{ $item->rowId }}')"></a>
                                             <a class="btn btn-reduce" href="#" wire:click.prevent="decreaseQuntity('{{ $item->rowId }}')"></a>
                                         </div>

@@ -5,19 +5,20 @@
 			<div class="wrap-breadcrumb">
 				<ul>
 					<li class="item-link"><a href="/" class="link">home</a></li>
-					<li class="item-link"><span>Digital & Electronics</span></li>
+					<li class="item-link"><span>Product Sections</span></li>
+					<li class="item-link"><span>{{ $section_name }}</span></li>
 				</ul>
 			</div>
 			<div class="row">
 				<div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
 					<div class="banner-shop">
 						<a href="#" class="banner-link">
-							<figure><img src="assets/images/shop-banner.jpg" alt=""></figure>
+							<figure><img src="{{ asset('assets/images/shop-banner.jpg') }}" alt=""></figure>
 						</a>
 					</div>
 					<div class="wrap-shop-control">
 
-						<h1 class="shop-title">Digital & Electronics</h1>
+						<h1 class="shop-title">{{ $section_name }}</h1>
 
 						<div class="wrap-right">
 
@@ -94,41 +95,8 @@
                                 @foreach($sections as $section)
                                     <li class="category-item has-child-cate">
                                         <a href="{{ route('product.section',$section->slug) }}" class="cate-link">{{ $section->section_name }}</a>
-                                        {{-- <span class="toggle-control">+</span>
-                                        <ul class="sub-cate">
-                                            @foreach($section->products as $product)
-                                              <li class="category-item"><a href="#" class="cate-link">{{ $product->product_name }}</a></li>
-                                            @endforeach
-                                        </ul> --}}
                                     </li>
                                 @endforeach
-								{{-- <li class="category-item has-child-cate">
-									<a href="#" class="cate-link">Furnitures & Home Decors</a>
-									<span class="toggle-control">+</span>
-									<ul class="sub-cate">
-										<li class="category-item"><a href="#" class="cate-link">Batteries (22)</a></li>
-										<li class="category-item"><a href="#" class="cate-link">Headsets (16)</a></li>
-										<li class="category-item"><a href="#" class="cate-link">Screen (28)</a></li>
-									</ul>
-								</li>
-								<li class="category-item has-child-cate">
-									<a href="#" class="cate-link">Digital & Electronics</a>
-									<span class="toggle-control">+</span>
-									<ul class="sub-cate">
-										<li class="category-item"><a href="#" class="cate-link">Batteries (22)</a></li>
-										<li class="category-item"><a href="#" class="cate-link">Headsets (16)</a></li>
-										<li class="category-item"><a href="#" class="cate-link">Screen (28)</a></li>
-									</ul>
-								</li>
-								<li class="category-item">
-									<a href="#" class="cate-link">Tools & Equipments</a>
-								</li>
-								<li class="category-item">
-									<a href="#" class="cate-link">Kid’s Toys</a>
-								</li>
-								<li class="category-item">
-									<a href="#" class="cate-link">Organics & Spa</a>
-								</li> --}}
 							</ul>
 						</div>
 					</div><!-- Categories widget-->
@@ -269,3 +237,4 @@
 	</main>
 	<!--main area-->
 </div>
+

@@ -16,6 +16,7 @@ class ProductDetails extends Component
         session()->flash('success_message','Item addded in cart');
         return redirect()->route('product.cart');
     }
+
     public function render()
     {
         $product = Product::where('slug',$this->slug)->first();

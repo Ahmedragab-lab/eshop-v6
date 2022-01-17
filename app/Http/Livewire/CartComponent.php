@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Section;
 use Livewire\Component;
 use Cart;
 
@@ -34,6 +35,8 @@ class CartComponent extends Component
 
     public function render()
     {
+
+       
         return view('livewire.CartComponent')->layout('layouts.master');
     }
 }
