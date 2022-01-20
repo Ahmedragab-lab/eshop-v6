@@ -30,7 +30,7 @@
                     <tbody>
                         @foreach($sections as $index=>$section)
                             <tr>
-                                <td>{{ $index + 1 }}</td>
+                                <th>{{ $index + 1 }}</th>
                                 <td>{{ $section->section_name }}</td>
                                 <td>{{ $section->slug }}</td>
                                 <td>
