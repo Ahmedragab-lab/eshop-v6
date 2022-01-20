@@ -951,5 +951,12 @@
 		<!-- Back-to-top -->
 		<a href="#top" id="back-to-top"><i class="las la-angle-double-up"></i></a>
     @include('dashlayouts.dashjs')
+
+
+    {{-- <script>
+          window.livewire.on('sectionAdded',()=>{
+            $('#modaldemo8').modal('hide');
+        });
+    </script> --}}
 	</body>
 </html>

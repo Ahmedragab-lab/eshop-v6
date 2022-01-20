@@ -20,6 +20,12 @@
             </div>
         </div>
         <ul class="side-menu">
+            <li class="slide">
+                <a class="side-menu__item" href="/"><span class="side-menu__label">Mysite</span></a>
+            </li>
+            <li class="slide">
+                <a class="side-menu__item" href="{{ route('admin.dashboard') }}"><span class="side-menu__label">Home</span></a>
+            </li>
             <li class="side-item side-item-category">Component </li>
             <li class="slide">
                 <a class="side-menu__item" href="{{ route('admin.section') }}"><span class="side-menu__label">Section</span></a>

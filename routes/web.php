@@ -16,6 +16,8 @@ Route::get('/search',Livewire\SearchComponent::class)->name('product.search');
 Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function () {
     Route::get('/admin/dashboard',Livewire\Admin\Dashboard::class)->name('admin.dashboard');
     Route::get('/admin/section',Livewire\Admin\SectionComponent::class)->name('admin.section');
+    Route::get('/admin/section/add',Livewire\Admin\AdminAddSectionComponent::class)->name('admin.addsection');
+    Route::get('/admin/section/Edit/{section_slug}',Livewire\Admin\AdminEditSectionComponent::class)->name('admin.editsection');
 });
 // route for user
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {

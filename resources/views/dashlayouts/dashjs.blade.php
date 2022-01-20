@@ -90,3 +90,6 @@
 		<!-- custom js -->
 		<script src="{{ asset('dashassets/js/custom.js') }}"></script>
 		<script src="{{ asset('dashassets/js/jquery.vmap.sampledata.js') }}"></script>
+        <!-- Internal Modal js-->
+        <script src="{{URL::asset('dashassets/js/modal.js')}}"></script>
+        @livewireScripts

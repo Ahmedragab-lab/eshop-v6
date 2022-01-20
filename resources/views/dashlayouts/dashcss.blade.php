@@ -46,3 +46,8 @@
 <link href="{{ asset('dashassets/css/skin-modes.css') }}" rel="stylesheet" />
 <!--- Animations css-->
 <link href="{{ asset('dashassets/css/animate.css') }}" rel="stylesheet">
+<!---Internal  Multislider css-->
+<link href="{{URL::asset('dashassets/plugins/multislider/multislider.css')}}" rel="stylesheet">
+<!--- Select2 css -->
+<link href="{{URL::asset('dashassets/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
+@livewireStyles
