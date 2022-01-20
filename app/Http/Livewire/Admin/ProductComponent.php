@@ -7,6 +7,11 @@ use Livewire\Component;
 
 class ProductComponent extends Component
 {
+    public function delete($id){
+        Product::destroy($id);
+        session()->flash('Delete','Product deleteded successfully');
+        return redirect()->route('admin.product');
+     }
     public function render()
     {
         $products = Product::latest()->get();

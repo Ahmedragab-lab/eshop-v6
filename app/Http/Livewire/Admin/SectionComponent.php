@@ -34,7 +34,6 @@ class SectionComponent extends Component
     public function render()
     {
         $sections = Section::latest()->get();
-        // $sections = Section::all();
         return view('livewire.admin.section-component',compact('sections'))->layout('dashlayouts.master');
     }
 }

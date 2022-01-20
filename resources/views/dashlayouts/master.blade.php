@@ -953,10 +953,6 @@
     @include('dashlayouts.dashjs')
 
 
-    {{-- <script>
-          window.livewire.on('sectionAdded',()=>{
-            $('#modaldemo8').modal('hide');
-        });
-    </script> --}}
+  
 	</body>
 </html>

@@ -5,7 +5,7 @@
                 <h4 class="card-title mg-b-0">Products</h4>
                 <i class="mdi mdi-dots-horizontal text-gray"></i>
             </div>
-            {{-- <a href="{{ route('admin.addproduct') }}" class="btn btn-primary ">Add New Product</a> --}}
+            <a href="{{ route('admin.addproduct') }}" class="btn btn-primary ">Add New Product</a>
             @include('partial.error')
         </div>
         <div class="card-body">
@@ -35,7 +35,7 @@
                                 <td>{{ number_format($product->original_price,2) }}</td>
                                 <td>{{ $product->section->section_name }}</td>
                                 <td>
-                                    <a href="{{ route('admin.editsection',$product->slug) }}" class="btn btn-success btn-sm" title="Edit"><i class="fa fa-edit"></i></a>
+                                    <a href="{{ route('admin.editproduct',$product->slug) }}" class="btn btn-success btn-sm" title="Edit"><i class="fa fa-edit"></i></a>
                                     <a href="" class="btn btn-danger btn-sm" title="Delete" wire:click.prevent="delete({{ $product->id }})"><i class="fa fa-trash"></i></a>
                                 </td>
                                 <td>{{ $product->created_at->format('Y-m-d') }}</td>

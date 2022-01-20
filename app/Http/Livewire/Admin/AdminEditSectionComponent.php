@@ -8,15 +8,11 @@ use Illuminate\Support\Str;
 
 class AdminEditSectionComponent extends Component
 {
-    public $section_slug;
     public $section_id;
     public $section_name;
     public $slug;
 
-
-
     public function mount($section_slug){
-        $this->section_slug = $section_slug;
         $section = Section::where('slug',$section_slug)->first();
         $this->section_id = $section->id;
         $this->section_name = $section->section_name;
