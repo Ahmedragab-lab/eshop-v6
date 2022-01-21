@@ -23,6 +23,10 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function () {
     Route::get('/admin/product',Livewire\Admin\ProductComponent::class)->name('admin.product');
     Route::get('/admin/product/add',Livewire\Admin\AdminAddProductComponent::class)->name('admin.addproduct');
     Route::get('/admin/product/edit/{product_slug}',Livewire\Admin\AdminEditProductComponent::class)->name('admin.editproduct');
+
+    Route::get('/admin/slider',Livewire\Admin\AdminHomeSliderComponent::class)->name('admin.homeslider');
+    Route::get('/admin/slider/add',Livewire\Admin\AdminAddHomeSliderComponent::class)->name('admin.addhomeslider');
+    Route::get('/admin/slider/edit/{slide_id}',Livewire\Admin\AdminEditHomeSliderComponent::class)->name('admin.edithomeslider');
 });
 // route for user
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {

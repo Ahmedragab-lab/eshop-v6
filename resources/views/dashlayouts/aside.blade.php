@@ -28,6 +28,9 @@
             </li>
             <li class="side-item side-item-category">Component </li>
             <li class="slide">
+                <a class="side-menu__item" href="{{ route('admin.homeslider') }}"><span class="side-menu__label">Manage Home Slider</span></a>
+            </li>
+            <li class="slide">
                 <a class="side-menu__item" href="{{ route('admin.section') }}"><span class="side-menu__label">Sections</span></a>
             </li>
             <li class="slide">
