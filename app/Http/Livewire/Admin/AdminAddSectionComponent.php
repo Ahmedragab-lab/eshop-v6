@@ -16,14 +16,27 @@ class AdminAddSectionComponent extends Component
     public function generateslug(){
        $this->slug = Str::slug($this->section_name);
     }
-    public function store(){
-        $validateData = $this->validate([
-            'section_name'=>'required|unique:sections,section_name',
+    // real time validation----------------------------------------------------------------------------
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName, [
+            'section_name'=>'required|min:3',
             'slug'        =>'required|unique:sections,slug',
-          ]);
-        Section::create($validateData);
-        session()->flash('Add','Section added successfully');
-        return redirect()->route('admin.section');
+        ]);
+    }
+ // end real time validation-
+    public function store(){
+        try {
+            $validateData = $this->validate([
+                'section_name'=>'required',
+                'slug'        =>'required|unique:sections,slug',
+            ]);
+            Section::create($validateData);
+            session()->flash('Add','Section added successfully');
+            return redirect()->route('admin.section');
+        }catch (\Exception $e) {
+            $this->catchError = $e->getMessage();
+        };
     }
     public function render()
     {

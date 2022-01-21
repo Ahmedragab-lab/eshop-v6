@@ -19,24 +19,54 @@ class AdminAddProductComponent extends Component
     public $original_price;
     public $selling_price;
     public $sku;
-    public $stock;
-    public $feature;
+    public $stock='instock';
+    public $feature=0;
     public $qty;
     public $image;
 
-    public function mount(){
-       $this->stock = 'instock';
-       $this->feature = 0;
-    }
+    // public function mount(){
+    //    $this->stock = 'instock';
+    //    $this->feature = 0;
+    // }
     public function generateslug(){
        $this->slug = Str::slug($this->product_name,'-');
     }
+
+ // real time validation----------------------------------------------------------------------------
+        public function updated($propertyName)
+        {
+            $this->validateOnly($propertyName, [
+                'product_name'   =>'required|min:3',
+                'slug'           =>'required|unique:products,slug',
+                'small_desc'     =>'required|min:3',
+                'desc'           =>'required|min:10',
+                'original_price' =>'required|numeric|min:2',
+                'selling_price'  =>'required|numeric|min:2',
+                'sku'            =>'required',
+                'stock'          =>'required|in:instock,outofstock',
+                'feature'        =>'required|in:0,1',
+                'qty'            =>'required|numeric|min:1',
+                'image'          =>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'section_id'     =>'required',
+            ]);
+        }
+// end real time validation-
+
     public function store(){
-        // $validateData = $this->validate([
-        //     'product_name'=>'required',
-        //     'slug'        =>'required|unique:products,slug',
-        //   ]);
-        // Product::create($validateData);
+        $validateData = $this->validate([
+            'product_name'   =>'required|min:3',
+            'slug'           =>'required|unique:products,slug',
+            'small_desc'     =>'required|min:3',
+            'desc'           =>'required|min:10',
+            'original_price' =>'required|numeric|min:2',
+            'selling_price'  =>'required|numeric|min:2',
+            'sku'            =>'required',
+            'stock'          =>'required|in:instock,outofstock',
+            'feature'        =>'required|in:0,1',
+            'qty'            =>'required|numeric|min:1',
+            'image'          =>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'section_id'     =>'required',
+          ]);
         $product = new Product();
         $product->section_id     = $this->section_id;
         $product->product_name   = $this->product_name;
