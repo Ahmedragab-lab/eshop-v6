@@ -11,6 +11,7 @@ Route::get('/checkout',Livewire\Checkout::class);
 Route::get('/product/{slug}',Livewire\ProductDetails::class)->name('product.details');
 Route::get('/section/{slug}',Livewire\Sections::class)->name('product.section');
 Route::get('/search',Livewire\SearchComponent::class)->name('product.search');
+Route::get('/wishlist',Livewire\WishlistComponent::class)->name('product.wishlist');
 
 // route for admin
 Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function () {

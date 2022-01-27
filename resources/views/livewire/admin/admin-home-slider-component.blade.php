@@ -41,7 +41,11 @@
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.edithomeslider',$slider->id) }}" class="btn btn-success btn-sm" title="Edit"><i class="fa fa-edit"></i></a>
-                                    <a href="" class="btn btn-danger btn-sm" title="Delete" wire:click.prevent="delete({{ $slider->id }})"><i class="fa fa-trash"></i></a>
+                                    <a href="" class="btn btn-danger btn-sm" title="Delete"
+                                               wire:click.prevent="delete({{ $slider->id }})"
+                                               onclick="confirm('{{ __('Are you sure to delete this homeslider') }}') || event.stopImmediatePropagation() ">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
                                 </td>
                                 <td>{{ $slider->created_at->format('Y-m-d') }}</td>
                             </tr>

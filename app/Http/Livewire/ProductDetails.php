@@ -8,14 +8,28 @@ use Cart;
 class ProductDetails extends Component
 {
     public $slug;
+    public $qty=1;
     public function mount($slug){
         $this->slug = $slug;
     }
     public function store($product_id,$product_name,$product_price){
-        Cart::add($product_id,$product_name,1,$product_price)->associate('App\Models\Product');
+        Cart::instance('cart')->add($product_id,$product_name,$this->qty,$product_price)->associate('App\Models\Product');
         session()->flash('success_message','Item addded in cart');
         return redirect()->route('product.cart');
     }
+    public function increaseQty(){
+        $this->qty++;
+    }
+    public function decreaseQty(){
+        if($this->qty > 1){
+            $this->qty--;
+        }
+    }
+    // public function addToWishlist($product_id,$product_name,$product_price){
+    //     Cart::instance('wishlist')->add($product_id,$product_name,1,$product_price)->associate('App\Models\Product');
+    //     session()->flash('success_message','Item addded in wishlist');
+    //     // return redirect()->route('product.cart');
+    // }
 
     public function render()
     {

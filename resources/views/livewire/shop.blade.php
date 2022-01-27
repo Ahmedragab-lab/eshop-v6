@@ -50,8 +50,32 @@
 						</div>
 
 					</div><!--end wrap shop control-->
+                    <style>
+                        .product-wish{
+                            position: absolute;
+                            top: 10%;
+                            left: 0;
+                            z-index: 99;
+                            right: 30px;
+                            text-align: right;
+                            padding-top: 0;
+                        }
+                        .product-wish .fa{
+                            color: #cbcbcb;
+                            font-size: 32px;
+                        }
+                        .product-wish .fa:hover{
+                            color: #ff7007;
+                        }
+                        .fill-heart{
+                            color: #ff7007 !important;
+                        }
+                    </style>
 					<div class="row">
 						<ul class="product-list grid-products equal-container">
+                            @php
+                                $witems = Cart::instance('wishlist')->content()->pluck('id');
+                            @endphp
                             @foreach($products as $product)
                                 <li class="col-lg-4 col-md-6 col-sm-6 col-xs-6 ">
                                     <div class="product product-style-3 equal-elem ">
@@ -67,6 +91,18 @@
                                                wire:click.prevent="store({{ $product->id }},'{{ $product->product_name }}',{{ $product->original_price }})">
                                                 Add To Cart
                                             </a>
+                                            <div class="product-wish">
+                                                @if($witems->contains($product->id))
+                                                    <a href="#" wire:click.prevent=" removeWishlist({{ $product->id }}) ">
+                                                      <i class="fa fa-heart fill-heart"></i>
+                                                    </a>
+                                                @else
+                                                  <a href="#"
+                                                     wire:click.prevent=" addToWishlist({{ $product->id }},'{{ $product->product_name }}',{{ $product->original_price }}) ">
+                                                     <i class="fa fa-heart"></i>
+                                                  </a>
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
@@ -102,33 +138,6 @@
                                         </ul> --}}
                                     </li>
                                 @endforeach
-								{{-- <li class="category-item has-child-cate">
-									<a href="#" class="cate-link">Furnitures & Home Decors</a>
-									<span class="toggle-control">+</span>
-									<ul class="sub-cate">
-										<li class="category-item"><a href="#" class="cate-link">Batteries (22)</a></li>
-										<li class="category-item"><a href="#" class="cate-link">Headsets (16)</a></li>
-										<li class="category-item"><a href="#" class="cate-link">Screen (28)</a></li>
-									</ul>
-								</li>
-								<li class="category-item has-child-cate">
-									<a href="#" class="cate-link">Digital & Electronics</a>
-									<span class="toggle-control">+</span>
-									<ul class="sub-cate">
-										<li class="category-item"><a href="#" class="cate-link">Batteries (22)</a></li>
-										<li class="category-item"><a href="#" class="cate-link">Headsets (16)</a></li>
-										<li class="category-item"><a href="#" class="cate-link">Screen (28)</a></li>
-									</ul>
-								</li>
-								<li class="category-item">
-									<a href="#" class="cate-link">Tools & Equipments</a>
-								</li>
-								<li class="category-item">
-									<a href="#" class="cate-link">Kid’s Toys</a>
-								</li>
-								<li class="category-item">
-									<a href="#" class="cate-link">Organics & Spa</a>
-								</li> --}}
 							</ul>
 						</div>
 					</div><!-- Categories widget-->

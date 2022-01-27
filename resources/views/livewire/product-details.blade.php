@@ -1,9 +1,7 @@
 <div>
     <!--main area-->
 	<main id="main" class="main-site">
-
 		<div class="container">
-
 			<div class="wrap-breadcrumb">
 				<ul>
 					<li class="item-link"><a href="/" class="link">home</a></li>
@@ -11,45 +9,14 @@
 				</ul>
 			</div>
 			<div class="row">
-
 				<div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
 					<div class="wrap-product-detail">
 						<div class="detail-media">
 							<div class="product-gallery">
 							  <ul class="slides">
-
 							    <li data-thumb="{{ asset('assets/images/products/'. $product->image) }}">
 							    	<img src="{{ asset('assets/images/products/'. $product->image) }}" alt="{{ $product->product_name }}" />
 							    </li>
-
-							    {{-- <li data-thumb="{{ asset('assets/images/products/'. $product->image) }}">
-							    	<img src="{{ asset('assets/images/products/'. $product->image) }}" alt="product thumbnail" />
-							    </li>
-
-							    <li data-thumb="{{ asset('assets/images/products/'. $product->image) }}">
-							    	<img src="{{ asset('assets/images/products/'. $product->image) }}" alt="product thumbnail" />
-							    </li>
-
-							    <li data-thumb="{{ asset('assets/images/products/'. $product->image) }}">
-							    	<img src="{{ asset('assets/images/products/'. $product->image) }}" alt="product thumbnail" />
-							    </li>
-
-							    <li data-thumb="{{ asset('assets/images/products/'. $product->image) }}">
-							    	<img src="{{ asset('assets/images/products/'. $product->image) }}" alt="product thumbnail" />
-							    </li>
-
-							    <li data-thumb="{{ asset('assets/images/products/'. $product->image) }}">
-							    	<img src="{{ asset('assets/images/products/'. $product->image) }}" alt="product thumbnail" />
-							    </li>
-
-							    <li data-thumb="{{ asset('assets/images/products/'. $product->image) }}">
-							    	<img src="{{ asset('assets/images/products/'. $product->image) }}" alt="product thumbnail" />
-							    </li>
-
-							    <li data-thumb="{{ asset('assets/images/products/'. $product->image) }}">
-							    	<img src="{{ asset('assets/images/products/'. $product->image) }}" alt="product thumbnail" />
-							    </li> --}}
-
 							  </ul>
 							</div>
 						</div>
@@ -78,15 +45,15 @@
                             <div class="stock-info in-stock">
                                 <p class="availability">Availability: <b>{{ $product->stock  }}</b></p>
                             </div>
-                            {{-- <div class="quantity">
+                            <div class="quantity">
                             	<span>Quantity:</span>
 								<div class="quantity-input">
-									<input type="number" min="1" name="product-quatity" value="1" data-max="120" pattern="[0-9]*" >
-
-									<a class="btn btn-reduce" href="#"></a>
-									<a class="btn btn-increase" href="#"></a>
+									<input type="number" min="1" name="product-quatity" value="1" data-max="120" pattern="[0-9]*"
+                                           wire:model='qty'>
+									<a class="btn btn-reduce" href="#" wire:click.prevent='decreaseQty'></a>
+									<a class="btn btn-increase" href="#" wire:click.prevent='increaseQty'></a>
 								</div>
-							</div> --}}
+							</div>
 							<div class="wrap-butons">
 								<a href="#" class="btn add-to-cart"
                                    wire:click.prevent="store({{ $product->id }},'{{ $product->product_name }}' , {{ $product->original_price }})">

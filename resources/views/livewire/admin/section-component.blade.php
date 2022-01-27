@@ -35,7 +35,14 @@
                                 <td>{{ $section->slug }}</td>
                                 <td>
                                     <a href="{{ route('admin.editsection',$section->slug) }}" class="btn btn-success btn-sm" title="Edit"><i class="fa fa-edit"></i></a>
-                                    <a href="" class="btn btn-danger btn-sm" title="Delete" wire:click.prevent="delete({{ $section->id }})"><i class="fa fa-trash"></i></a>
+                                    <a href="" class="btn btn-danger btn-sm"
+                                               title="Delete"
+                                               wire:click.prevent="delete({{ $section->id }})"
+                                               {{-- onclick="confirm('{{ __('Are you sure to delete this section') }}') ? this.parentElement.submit() : ''" --}}
+                                               onclick="confirm('{{ __('Are you sure to delete this section') }}') || event.stopImmediatePropagation() "
+                                               >
+                                        <i class="fa fa-trash"></i>
+                                    </a>
                                 </td>
                                 <td>{{ $section->created_at->format('Y-m-d') }}</td>
                             </tr>
