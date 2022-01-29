@@ -5,7 +5,7 @@ use App\Http\Livewire;
 
 //start routes
 Route::get('/',Livewire\Home::class);
-Route::get('/shop',Livewire\Shop::class);
+Route::get('/shop',Livewire\Shop::class)->name('shop');
 Route::get('/cart',Livewire\CartComponent::class)->name('product.cart');
 Route::get('/checkout',Livewire\Checkout::class);
 Route::get('/product/{slug}',Livewire\ProductDetails::class)->name('product.details');
@@ -28,6 +28,10 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function () {
     Route::get('/admin/slider',Livewire\Admin\AdminHomeSliderComponent::class)->name('admin.homeslider');
     Route::get('/admin/slider/add',Livewire\Admin\AdminAddHomeSliderComponent::class)->name('admin.addhomeslider');
     Route::get('/admin/slider/edit/{slide_id}',Livewire\Admin\AdminEditHomeSliderComponent::class)->name('admin.edithomeslider');
+
+    Route::get('/admin/coupon',Livewire\Admin\CouponsComponent::class)->name('admin.coupon');
+    Route::get('/admin/coupon/add',Livewire\Admin\AddCouponsComponent::class)->name('admin.addcoupon');
+    Route::get('/admin/coupon/edit/{coupon_id}',Livewire\Admin\EditCouponsComponent::class)->name('admin.editcoupon');
 });
 // route for user
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
