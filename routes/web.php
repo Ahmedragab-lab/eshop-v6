@@ -7,11 +7,12 @@ use App\Http\Livewire;
 Route::get('/',Livewire\Home::class);
 Route::get('/shop',Livewire\Shop::class)->name('shop');
 Route::get('/cart',Livewire\CartComponent::class)->name('product.cart');
-Route::get('/checkout',Livewire\Checkout::class);
+Route::get('/checkout',Livewire\Checkout::class)->name('checkout');
 Route::get('/product/{slug}',Livewire\ProductDetails::class)->name('product.details');
 Route::get('/section/{slug}',Livewire\Sections::class)->name('product.section');
 Route::get('/search',Livewire\SearchComponent::class)->name('product.search');
 Route::get('/wishlist',Livewire\WishlistComponent::class)->name('product.wishlist');
+Route::get('/thankyou',Livewire\ThankyouComponent::class)->name('thankyou');
 
 // route for admin
 Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function () {
