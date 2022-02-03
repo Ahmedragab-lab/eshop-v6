@@ -40,6 +40,9 @@
                 <a class="side-menu__item" href="{{ route('admin.coupon') }}"><span class="side-menu__label">All Coupons</span></a>
             </li>
             <li class="slide">
+                <a class="side-menu__item" href="{{ route('admin.order') }}"><span class="side-menu__label">All Orders</span></a>
+            </li>
+            <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="#"><span class="side-menu__label">test</span><i class="angle fe fe-chevron-down"></i></a>
                 <ul class="slide-menu">
                     <li><a class="slide-item" href="chart-morris.html">test1</a></li>

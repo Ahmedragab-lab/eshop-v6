@@ -33,6 +33,9 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function () {
     Route::get('/admin/coupon',Livewire\Admin\CouponsComponent::class)->name('admin.coupon');
     Route::get('/admin/coupon/add',Livewire\Admin\AddCouponsComponent::class)->name('admin.addcoupon');
     Route::get('/admin/coupon/edit/{coupon_id}',Livewire\Admin\EditCouponsComponent::class)->name('admin.editcoupon');
+
+    Route::get('/admin/order',Livewire\Admin\AdminOrderComponent::class)->name('admin.order');
+    Route::get('/admin/order/{order_id}',Livewire\Admin\AdminOrderDetailsComponent::class)->name('admin.orderdetails');
 });
 // route for user
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
