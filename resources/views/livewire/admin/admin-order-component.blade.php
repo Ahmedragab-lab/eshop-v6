@@ -46,21 +46,6 @@
                                     </a>
                                 </td>
                                 <td>{{ $order->created_at->format('Y-m-d') }}</td>
-                                {{-- <td>
-                                    <img src="{{ asset('assets/images/products') }}/{{ $product->image }}" width="60" class="img-thumbnail">
-                                </td> --}}
-                                {{-- <td>{{ $product->product_name }}</td> --}}
-                                {{-- <td class="{{ $product->stock == 'instock' ? 'text-success':'text-danger'}}">{{ $product->stock }}</td> --}}
-                                {{-- <td>{{ number_format($product->original_price,2) }}</td> --}}
-                                {{-- <td>{{ $product->section->section_name }}</td> --}}
-                                {{-- <td>
-                                    <a href="{{ route('admin.editproduct',$product->slug) }}" class="btn btn-success btn-sm" title="Edit"><i class="fa fa-edit"></i></a>
-                                    <a href="" class="btn btn-danger btn-sm" title="Delete" wire:click.prevent="delete({{ $product->id }})"
-                                        onclick="confirm('{{ __('Are you sure to delete this product') }}') || event.stopImmediatePropagation() ">
-                                        <i class="fa fa-trash"></i>
-                                    </a>
-                                </td> --}}
-
                             </tr>
                         @endforeach
                     </tbody>

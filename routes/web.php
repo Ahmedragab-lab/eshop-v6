@@ -40,5 +40,7 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function () {
 // route for user
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/user/dashboard',Livewire\User\Userdashboard::class)->name('user.dashboard');
+    Route::get('/user/order',Livewire\User\UserOrderComponent::class)->name('user.order');
+    Route::get('/user/orderdetails/{order_id}',Livewire\User\UserOrderDetailsComponent::class)->name('user.orderdetails');
 });
 

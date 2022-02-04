@@ -46,10 +46,24 @@
                                     </tbody>
                                 </table>
                                 <h4>Order Summary</h4>
-                                <div> Subtotal = ${{ $order->subtotal }} </div>
-                                <div> Tax      = ${{ $order->tax }} </div>
-                                <div> Shipping = Free Shipping </div>
-                                <div> Total    = ${{ $order->total }} </div>
+                                <table class="table mb-0 table-bordered border-top mb-0">
+                                    <tr>
+                                        <th>Subtotal</th>
+                                        <td>${{ $order->subtotal }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tax </th>
+                                        <td>${{ $order->tax }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Shipping</th>
+                                        <td>Free Shipping </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Total </th>
+                                        <td>${{ $order->total }} </td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>

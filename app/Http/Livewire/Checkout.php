@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Cart;
 use Exception;
+use Illuminate\Support\Facades\DB;
 use Stripe;
 
 class Checkout extends Component
@@ -88,6 +89,8 @@ class Checkout extends Component
     }
      // end real time validation-
     public function placeOrder(){
+    DB::beginTransaction();
+    try{
        $this->validate([
         'fname'   =>'required',
         'lname'   =>'required',
@@ -224,6 +227,11 @@ class Checkout extends Component
                 $this->thankyou = 0 ;
            }
         }
+
+    } catch (\Exception $e) {
+        DB::rollback();
+        return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+    }
     }
 
     public function makeTransaction($order_id,$status){
@@ -246,6 +254,7 @@ class Checkout extends Component
        if(!Auth::check()){
            return redirect()->route('login');
        }elseif($this->thankyou){
+           DB::commit();
            return redirect()->route('thankyou');
        }elseif(!session()->get('checkout')){
            return redirect()->route('product.cart');

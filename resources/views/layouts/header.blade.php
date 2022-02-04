@@ -63,6 +63,9 @@
                                                 <a title="Dashboard" href="{{ route('user.dashboard') }}">Dashboard</a>
                                             </li>
                                             <li class="menu-item" >
+                                                <a title="Order" href="{{ route('user.order') }}">MyOrder</a>
+                                            </li>
+                                            <li class="menu-item" >
                                                 <a title="Logout" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('log-out').submit();">
                                                     Log out
                                                 </a>
@@ -97,7 +100,7 @@
                     @livewire('header-search-component')
                     {{-- @include('livewire.header-search-component') --}}
                     <div class="wrap-icon right-section">
-                        
+
                         @livewire('wishlist-count-component')
                         @livewire('cart-count-component')
 
