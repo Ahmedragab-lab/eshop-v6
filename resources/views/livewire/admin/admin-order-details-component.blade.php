@@ -7,8 +7,48 @@
                 <h3 class="card-title"><strong style="color: rgb(224, 33, 33);">{{ $order->firstname }} {{ $order->lastname }}</strong> Order No {{ $order->id }} Details</h3>
                 <a href="{{ route('admin.order') }}" class="btn btn-primary ">All Orders</a>
             </div>
+           
             <div class="card-body">
                 <div id="accordion" class="w-100 br-2 overflow-hidden">
+                    <div class="">
+                        <div class="accor  bg-primary" id="headingThree3">
+                            <h4 class="m-0">
+                                <a href="#collapseThree1" class="collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="collapseThree">
+                                    <i class="si si-cursor-move mr-2"></i>Order Status
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree1" class="collapse b-b0" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="border p-3">
+                                <table class="table mb-0 table-bordered border-top mb-0">
+                                    <tr>
+                                        <th>Order Date</th>
+                                        <td>{{ $order->created_at->format('Y-m-d') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Order Status</th>
+                                        <td>{{ $order->status }}</td>
+                                    </tr>
+                                    @if( $order->status == 'delivered')
+                                        <tr>
+                                            <th>Delivery Date</th>
+                                            <td>{{ $order->deliverd_date }}</td>
+                                        </tr>
+                                    @elseif(( $order->status == 'canceled'))
+                                        <tr>
+                                            <th>Cancelation Date</th>
+                                            <td>{{ $order->canceled_date }}</td>
+                                        </tr>
+                                    @elseif(( $order->status == 'ordered'))
+                                        <tr>
+                                            <th>order Date</th>
+                                            <td>{{ $order->created_at->format('Y-m-d') }}</td>
+                                        </tr>
+                                    @endif
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                     <div class="">
                         <div class="accor bg-primary" id="headingOne1">
                             <h4 class="m-0">

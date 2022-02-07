@@ -3,8 +3,30 @@
         <div class="col-md-12">
             <div class="panel panel-default " style="margin: 10px;">
                 <div class="panel-heading">
-                   <h4>Order Details</h4>
+                    <a href="{{ route('user.order') }}" class="btn btn-success btn-sm pull-right">My Orders</a>
+                   <h4>Order Details Of {{ $order->firstname }} {{ $order->lastname }} No <span style="color: red;">{{ $order->id }}</span></h4>
+                   @if($order->status == 'ordered')
+                   <a href="" class="btn btn-warning btn-sm " wire:click.prevent='cancelOrder({{ $order->id }})'>Cancel Order</a>
+                   @elseif($order->status == 'canceled')
+                   <a href="" class="btn btn-success btn-sm " wire:click.prevent='activeOrder({{ $order->id }})'>Active Order</a>
+                   @endif
                 </div>
+                @if (session()->has('order_message'))
+                    <div class="alert alert-warning " role="alert">
+                        <strong style="padding-right: 35px;">{{ session()->get('order_message') }}</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                 @endif
+                @if (session()->has('order_message_success'))
+                    <div class="alert alert-success " role="alert">
+                        <strong style="padding-right: 35px;">{{ session()->get('order_message_success') }}</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                 @endif
                 <div class="panel-body">
                     <table class="table mb-0 table-bordered border-top mb-0">
                         <thead>
@@ -15,6 +37,7 @@
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>Subtotal</th>
+                            <th>Review</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -28,6 +51,9 @@
                                 <td>{{ $item->price }}</td>
                                 <td>{{ $item->qty }}</td>
                                 <td>$ {{ number_format( $item->price * $item->qty ,2) }}</td>
+                                @if($order->status == 'delivered' && $item->rstatus == false)
+                                   <td><a href="{{ route('user.review',$item->id ) }}" class="btn btn-info btn-sm">write review</a></td>
+                                @endif
                                 </tr>
                             @endforeach
                         </tbody>
@@ -50,6 +76,30 @@
                             <th>Total </th>
                             <td>${{ $order->total }} </td>
                         </tr>
+                        <tr>
+                            <th>Order Date</th>
+                            <td>{{ $order->created_at->format('Y-m-d') }}</td>
+                        </tr>
+                        <tr>
+                            <th>Order Status</th>
+                            <td>{{ $order->status }}</td>
+                        </tr>
+                        @if( $order->status == 'delivered')
+                            <tr>
+                                <th>Delivery Date</th>
+                                <td>{{ $order->deliverd_date }}</td>
+                            </tr>
+                        @elseif(( $order->status == 'canceled'))
+                            <tr>
+                                <th>Canceled Date</th>
+                                <td>{{ $order->canceled_date }}</td>
+                            </tr>
+                        @elseif(( $order->status == 'ordered'))
+                            <tr>
+                                <th>order Date</th>
+                                <td>{{ $order->created_at->format('Y-m-d') }}</td>
+                            </tr>
+                        @endif
                     </table>
                 </div>
             </div>

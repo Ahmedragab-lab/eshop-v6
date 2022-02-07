@@ -230,7 +230,8 @@ class Checkout extends Component
 
     } catch (\Exception $e) {
         DB::rollback();
-        return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        // return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        session()->flash('stripe_error',$e->getMessage());
     }
     }
 
