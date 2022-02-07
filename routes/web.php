@@ -13,6 +13,7 @@ Route::get('/section/{slug}',Livewire\Sections::class)->name('product.section');
 Route::get('/search',Livewire\SearchComponent::class)->name('product.search');
 Route::get('/wishlist',Livewire\WishlistComponent::class)->name('product.wishlist');
 Route::get('/thankyou',Livewire\ThankyouComponent::class)->name('thankyou');
+Route::get('/contactus',Livewire\ContactusComponent::class)->name('contactus');
 
 // route for admin
 Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function () {
@@ -36,6 +37,9 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function () {
 
     Route::get('/admin/order',Livewire\Admin\AdminOrderComponent::class)->name('admin.order');
     Route::get('/admin/order/{order_id}',Livewire\Admin\AdminOrderDetailsComponent::class)->name('admin.orderdetails');
+
+    Route::get('/admin/contact-us',Livewire\Admin\AdminContactComponent::class)->name('admin.contact');
+    Route::get('/admin/settings',Livewire\Admin\AdminSettingsComponent::class)->name('admin.settings');
 });
 // route for user
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {

@@ -43,6 +43,12 @@
                 <a class="side-menu__item" href="{{ route('admin.order') }}"><span class="side-menu__label">All Orders</span></a>
             </li>
             <li class="slide">
+                <a class="side-menu__item" href="{{ route('admin.contact') }}"><span class="side-menu__label">Contact US</span></a>
+            </li>
+            {{-- <li class="slide">
+                <a class="side-menu__item" href="{{ route('admin.settings') }}"><span class="side-menu__label">Settings</span></a>
+            </li> --}}
+            <li class="slide">
                 <a class="side-menu__item" data-toggle="slide" href="#"><span class="side-menu__label">test</span><i class="angle fe fe-chevron-down"></i></a>
                 <ul class="slide-menu">
                     <li><a class="slide-item" href="chart-morris.html">test1</a></li>
