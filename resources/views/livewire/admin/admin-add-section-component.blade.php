@@ -14,6 +14,7 @@
                                     placeholder="Section Name"
                                     wire:model='section_name'
                                     wire:keyup='generateslug'>
+                                    
                             @error('section_name')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror

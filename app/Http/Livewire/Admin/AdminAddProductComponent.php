@@ -31,6 +31,7 @@ class AdminAddProductComponent extends Component
     public function generateslug(){
        $this->slug = Str::slug($this->product_name,'-');
     }
+    
 
  // real time validation----------------------------------------------------------------------------
         public function updated($propertyName)
